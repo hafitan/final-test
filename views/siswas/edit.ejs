@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 mt-5">
+                <div class="card">
+                    <div class="card-header">edit siswa</div>
+                    <div class="card-body">
+                        <form action="/siswas/update/<%= data.id %>" method="POST">
+                            <div class="form-group">
+                                <label for="nama" class="cols-sm-2 control-label">Nama</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="nama" id="nama" value="<%= data.nama %>"
+                                            placeholder="Masukan nama" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="kelas" class="cols-sm-2 control-label">kelas</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                aria-hidden="true"></i></span>
+                                        <!-- <input type="kelas" class="form-control" name="kelas" id="kelas"
+                                            placeholder="Enter your kelas" /> -->
+                                        <select name="kelas" id="kelas" class="form-control" required >
+                                            <option value="">-- Pilih Kelas--</option>
+                                            <option value="matematika" <%= data.kelas === "matematika" ? "selected" : "" %> >Matematika</option>
+                                            <option value="ipa" <%= data.kelas === "ipa" ? "selected" : "" %> >IPA</option>
+                                            <option value="ips" <%= data.kelas === "ips" ? "selected" : "" %> >IPS</option>
+                                            <option value="bahasa" <%= data.kelas === "bahasa" ? "selected" : "" %> >Bahasa</option>
+                                            <option value="bela diri" <%= data.kelas === "bela diri" ? "selected" : "" %> >Bela diri</option>
+                                            <option value="tari" <%= data.kelas === "tari" ? "selected" : "" %> >Tari</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat" class="cols-sm-2 control-label">alamat</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa"
+                                                aria-hidden="true"></i></span>
+                                        <!-- <input type="text" class="form-control" name="alamat" id="alamat"
+                                            placeholder="Masukan alamat" required /> -->
+                                            <textarea name="alamat" id="alamat" class="form-control" cols="30" rows="10"><%= data.alamat %></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tempat" class="cols-sm-2 control-label">Tempat Lahir</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="tempat" id="tempat" value="<%= data.tempat %>"
+                                            placeholder="Masukan tempat lahir" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tgl_lahir" class="cols-sm-2 control-label">Tanggal Lahir</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="date" class="form-control" name="tgl_lahir" id="tgl_lahir" value="<%= data.tgl_lahir %>"
+                                            placeholder="Masukan tempat lahir" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="no_telp" class="cols-sm-2 control-label">No HP</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="number" class="form-control" name="no_telp" id="no_telp" value="<%= data.no_telp %>"
+                                            placeholder="Masukan no hp" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama_orang_tua" class="cols-sm-2 control-label">Nama Orang Tua</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="nama_orang_tua" id="nama_orang_tua" value="<%= data.nama_orang_tua %>"
+                                            placeholder="Masukan tempat lahir" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="no_ortu" class="cols-sm-2 control-label">No HP Orang Tua</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="number" class="form-control" name="no_ortu" id="no_ortu" value="<%= data.no_ortu %>"
+                                            placeholder="Masukan no hp orang tua" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <!-- <button type="submit"class="btn btn-primary btn-lg btn-block login-button">Submit</button> -->
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <a href="/siswas" class="btn btn-warning">Kembali</a>
+                            </div>
+                        </form>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
