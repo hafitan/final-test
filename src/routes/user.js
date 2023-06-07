@@ -10,6 +10,8 @@ router.post('/registers', controller.register)
 router.get('/users', controller.get)
 router.get('/create', controller.getPost)
 router.post('/store', controller.post)
+router.get('/edit/:id', controller.getEdit)
+router.post('/update/:id', controller.edit)
 router.get('/users/delete/:id', controller.delete)
 
 

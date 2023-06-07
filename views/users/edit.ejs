@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 mt-5">
+                <div class="card">
+                    <div class="card-header">edit user</div>
+                    <div class="card-body">
+                        <form class="form-horizontal" action="/update/<%= data.id %>" method="POST">
+                            <div class="form-group">
+                                <div class="cols-sm-2 control-label">
+                                    <label for="email" class="">Your Email</label>
+                                </div>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-envelope fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="email" id="email" value="<%= data.email %>" required
+                                            placeholder="Enter your Email" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="cols-sm-2 control-label">Username</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="username" id="username" value="<%= data.username %>" required
+                                            placeholder="Enter your Username" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="cols-sm-2 control-label">Password</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="password" id="password" value="<%= data.password %>" required
+                                            placeholder="Enter your Password" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="role" class="cols-sm-2 control-label">role</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                aria-hidden="true"></i></span>
+                                        <!-- <input type="role" class="form-control" name="role" id="role"
+                                            placeholder="Enter your role" /> -->
+                                        <select name="role" id="role" class="form-control" required >
+                                            <option value="">-- Pilih --</option>
+                                            <option value="admin" <%= data.role === 'admin' ? 'selected' : '' %>>Admin</option>
+                                            <option value="siswa" <%= data.role === 'siswa' ? 'selected' : ''  %> >Siswa</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <!-- <button type="submit"class="btn btn-primary btn-lg btn-block login-button">Submit</button> -->
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <a href="/users" class="btn btn-warning">Kembali</a>
+                            </div>
+                        </form>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

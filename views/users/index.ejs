@@ -50,7 +50,7 @@
                                     <td><%= user.username  %></td>
                                     <td><%= user.role  %></td>
                                     <td>
-                                        <a href="">edit</a>
+                                        <a href="/edit/<%= user.id %>">edit</a>
                                         <a href="/users/delete/<%= user.id %>" onclick="return confirm(`hapus data <%= user.username %>`)">delete</a>
                                     </td>
                                    </tr> 

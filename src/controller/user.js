@@ -118,7 +118,10 @@ exports.edit = async (req, res) => {
         })
         console.log(update)
         
-        return res.redirect('/')
+        // res.send({
+        //     message: 'success!'
+        // })
+        return res.redirect('/users')
     }catch(err){
         console.error(err)
     }
@@ -254,25 +257,28 @@ exports.login = async (req, res) => {
         },
             process.env.ACCESS_TOKEN_SECRET
         )
-        const role = login.dataValues.role
-         if (role === "admin") {
-      res.cookie("token", accessToken);
-      return res.redirect(`/siswas`);
-    }
 
-    const findClass = await siswas.findOne({
-      where: {
-        email: body.email,
-      },
-    });
+        res.cookie('token', accessToken)
+        res.redirect('/siswas')
+    //     const role = login.dataValues.role
+    //      if (role === "admin") {
+    //   res.cookie("token", accessToken);
+    //   return res.redirect(`/siswas`);
+    // }
 
-    let category = findClass.dataValues.kelas.toLowerCase();
-    if (category.includes(" ")) {
-      category = category.replace(/\s/g, "_");
-    }
+    // const findClass = await siswas.findOne({
+    //   where: {
+    //     email: body.email,
+    //   },
+    // });
+
+    // let category = findClass.dataValues.kelas.toLowerCase();
+    // if (category.includes(" ")) {
+    //   category = category.replace(/\s/g, "_");
+    // }
     
-    res.cookie("token", accessToken);
-    res.redirect(`/siswas/${category}`);
+    // res.cookie("token", accessToken);
+    // res.redirect(`/siswas/${category}`);
     }catch(err)  {
         console.error(err)
     }

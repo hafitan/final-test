@@ -24,14 +24,15 @@
                                 </div>
                                 <div class="pull-left">
                                     <!-- <h4>user</h4> -->
-                                    <a href="/siswas" style="color: black;">siswa</a>
-                                    <a href="/users" style="color: black;">user</a>
+                                    <a href="/siswas" style="color: black;">siswa khusus</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <a href="/siswas/create" class="btn btn-primary mb-4">Tambah</a>
+                        <% if(auth.role == 'admin'){ %>
+                            <a href="/siswas/create" class="btn btn-primary mb-4">Tambah</a>
+                        <% } %>
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -58,7 +59,7 @@
                                        <td><%= siswa.nama_orang_tua %></td>
                                        <td><%= siswa.no_ortu %></td>
                                        <td>
-                                        <% if(siswa.email == id.email){ %>
+                                        <% if(siswa.email === auth.emai) { %>
                                             <a href="/siswas/edit/<%= siswa.id %>" class="btn btn-info">edit</a>
                                             <a href="/siswas/delete/<%= siswa.id %>" onclick="return confirm(`yakin mau hapus <%= siswa.nama %>`)" class="btn btn-danger">delete</a>
                                         <% } %>
